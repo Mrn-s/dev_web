@@ -3,44 +3,61 @@ body{
     padding: 0;
     height: 100%;
     overflow:auto;
+    background-color:var(--black) !important;
 }
 #ctfs img {
   height:100%; 
   width:100%;
 }
-#main{
-    background-color: var(--beige_fonce_o);
-    padding-top: 6%;
-    padding-bottom: 5%;
+
+#ctfs p {
+  justify-content: center;
 }
 
-
+.titre-element-ctf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main{
+    background-color: var(--beige_fonce);
+    padding-top: 7%;
+    border-right: 3mm ridge var(--beige_fonce_o);
+    border-left: 3mm ridge var(--beige_fonce_o);
+}
+nav{
+  z-index: 5;
+  position: fixed;
+  color: white;
+  background-color: var(--black);
+}
+nav div a {
+  display: flex;
+  justify-content: center;
+}
+nav div{
+  padding: 1% 0;
+}
 
 #nav-menu{
-  background-color: var(--cam_color_o);
-  border: 4mm ridge rgba(211, 220, 50, .6);
+  border: 3mm ridge var(--beige_fonce_o);
+}
+
+
+footer a {
   display: flex;
-  justify-content:space-around;
-  align-content: center;
+  justify-content: space-around;
+  align-items:flex-start;
 }
 
-#nav-bar{
- position: fixed;
+.div-img{
+  padding: 10px 0;
+  margin: auto;
 }
 
-.nav-div{
-  margin: 1%;
-}
-
-#footer-menu{
-  display: flex;
-  justify-content:space-around;
-  align-content: center;
-  background-color: var(--cam_color_o);
-}
-
-#footer-bar{
- position: fixed;
+footer img{
+  width: 20%;
+  background-color:var(--beige_fonce_o2);
 }
 
 .footer-div{
@@ -50,8 +67,11 @@ body{
 footer {
   z-index: 5;
   bottom: 0;
-  position: fixed;
+  position: relative;
   width: 100%;
+  color: white;
+  background-color: var(--black);
+  border: 3mm ridge var(--beige_fonce_o);
 }
 
 :root {
@@ -71,27 +91,30 @@ footer {
   
     --orange_logo_o: rgba(177, 112, 71,0.8);
     --bleu_logo_o: rgba(46, 65, 67,0.9);
-    --cam_color_o: rgba(196, 195, 149,1);
+    --cam_color_o: rgba(196, 195, 149, 1.0);
     --violet_o:rgba(144, 118, 157,0.65);
     --bleu_ciel_o:rgba(115, 187, 188, 0.65);
     --cyan_o:rgba(81, 169, 171,0.55);
     --cyan_o2:rgba(81, 169, 171,0.80);
-    --jaune_o: rgba(232,197,66,0.7);
-    --beige_fonce_o: rgba(242,237,219,0.82);
+    --jaune_o: rgba(232,197,66,1.0);
+    --beige_fonce_o: rgba(242,237,219,1.0);
+    --beige_fonce_o2: rgba(255,255,255,0.1);
     --vert_o: rgba(9,55,31,0.70);
     --vert_o2: rgba(9,55,31,0.65);
-    --vert_clair:rgba(154, 188, 157,0.92);
+    --vert_clair:rgba(154, 188, 157,0.7);
+    --vert_clair_fonce:rgba(154, 188, 157,1);
     --vert_clair_o:rgba(154, 188, 157,0.2);
     --rouge: rgb(225, 51, 45);
     --rouge_clair:rgb(234, 116, 112);
-  
+    --black: rgba(0,0,0,0.9);
+
     --text: #000;
     --text2: #fff;
 
-    --taille1: font-size:1.2em;
-    --taille2: font-size:1.5em;
-    --taille3: font-size:2em;
-    --taille4: font-size:2.5em;
+    --taille4: 1.2em;
+    --taille3: 1.5em;
+    --taille2: 2em;
+    --taille1: 2.5em;
   
 }
 
@@ -102,7 +125,10 @@ footer {
   justify-content: center;
 }
 
-
+footer .titre_logo{
+  display: flex;
+  justify-content: center;
+}
 
 
 /* ### ### ### 10 */
@@ -369,3 +395,8 @@ footer {
   -webkit-transform: rotateX(-90deg);
   -moz-transform: rotateX(-90deg);
 }
+
+
+
+
+
