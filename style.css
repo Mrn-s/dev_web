@@ -13,7 +13,25 @@ body{
 #ctfs p {
   justify-content: center;
 }
+.un_ctf{
+  padding: 1% 0;
+}
+.ctf div {
+  color: white;
+  background-color:var(--black);
+}
 
+.ctf {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.30);
+  transition: all 0.2s cubic-bezier(.1,.1,.1,1);
+}
+
+.ctf:hover {
+  background-color:var(--cam_color);
+  color: var(--beige);
+  transform: translate(0px,-10px);
+  box-shadow: 0 50px 50px rgba(0,0,0,0.50), 0 25px 25px rgba(0,0,0,0.50);
+}
 .titre-element-ctf {
   display: flex;
   justify-content: center;

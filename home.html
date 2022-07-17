@@ -27,14 +27,15 @@
             <div><h1>Bienvenue sur mon site</h1></div>
         </article>
         <article class="row" id="sous-entete-main">
-            <div><h4>Made by ShoemakerL9</h4></div>
+            <div><h4>Merouane S.</h4></div>
         </article>
         <article class="row">
             <div class="col-sm-12">
                 <p><h5>Ici vous trouverez la liste des ctfs que j'ai résolus</h5></p>
             </div>
         </article>
-        <article class="row" id="ctfs">
+        <article class="container-fluid">
+            <article class="row" id="ctfs">
 
             <!-- <div class="col-sm-6" >
                 <div class="row">
@@ -67,47 +68,53 @@
                 </div>
             </div>     -->
 
-        </article>
+        </article></article>
 
         <article class="row" id="articles_cyber">
         </article>
 
+        <article class="row" id="mon_parcours">
+            <div></div>
+        </article>
+
+        <article class="row" id="autres">
+        </article>
     </section>
 
     <footer class="container-fluid">
         <section class="row">
             <div class="col-sm-2 div-img">
-                <a href="https://www.linkedin.com/in/merouane-souadji/">
+                <a href="https://www.linkedin.com/in/merouane-souadji/" target="_blank">
                     <img src="./images/footer/linkedin.png" alt="">
                 </a>
                 <div class="titre_logo">linkedin</div>
             </div>
             <div class="col-sm-2 div-img"> 
-                <a href="https://github.com/Mrn-s">
+                <a href="https://github.com/Mrn-s" target="_blank">
                     <img  src="./images/footer/github.svg" alt=""> 
                 </a>
                 <div class="titre_logo">github</div>
             </div>
             <div class="col-sm-2 div-img"> 
-                <a href="https://tryhackme.com/p/Shoemaker">
+                <a href="https://tryhackme.com/p/Shoemaker" target="_blank">
                     <img src="./images/footer/tryhackme.png"  alt=""> 
                 </a>
                 <div class="titre_logo">tryhackme</div>
             </div>
             <div class="col-sm-2 div-img"> 
-                <a href="https://app.hackthebox.com/profile/594822">
+                <a href="https://app.hackthebox.com/profile/594822" target="_blank">
                     <img src="./images/footer/hackthebox.png" alt=""> 
                 </a>
                 <div class="titre_logo">hackthebox</div>
             </div>
             <div class="col-sm-2 div-img"> 
-                <a href="https://www.root-me.org/Shoemaker">
+                <a href="https://www.root-me.org/Shoemaker" target="_blank">
                     <img src="./images/footer/rootme.svg" alt=""> 
                 </a>
                 <div class="titre_logo">rootme</div>
             </div>
             <div class="col-sm-2 div-img"> 
-                <a href="https://youtube.fr">
+                <a href="https://youtube.fr" target="_blank">
                     <img src="./images/footer/youtube.png" alt=""> 
                 </a>
                 <div class="titre_logo">youtube</div>
@@ -128,13 +135,19 @@
         function addElement (image, description, titre, avis, lien, difficulte, temps) {
         // et lui donne un peu de contenu
 
+        var div_00 = document.createElement("div")
+        div_00.classList.add("col-sm-6")
+        div_00.classList.add("un_ctf")
+
         var div_0 = document.createElement("div")
         div_0.classList.add("col-sm-12")
 
         var div_1 = document.createElement("div")
-        div_1.classList.add("col-sm-6")
+        div_1.classList.add("col-sm-12")
+        
         var div_2 = document.createElement("div")
         div_2.classList.add("row")
+        div_2.classList.add("ctf")
         var div_3 = document.createElement("div")
         div_3.classList.add("col-sm-12")
         
@@ -248,12 +261,13 @@
             div_2.appendChild(div_8)
 
             div_1.appendChild(div_2)
-
+            
+            div_00.appendChild(div_1)
         
         // ajoute le nouvel élément créé et son contenu dans le DOM
         var currentDiv = document.getElementById('ctfs');
             
-        currentDiv.appendChild(div_1);
+        currentDiv.appendChild(div_00);
         }
         
     </script>
