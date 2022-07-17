@@ -5,10 +5,109 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="data.js"></script>
 </head>
 <body>
-    <p> ce changement est un test sur la branche de dev et test</p>
+    <nav class="container-fluid" id="nav-bar">
+        <section id="nav-menu">
+            <div class="nav-div"><a href="./home.html">Accueil</a></div>
+            <div class="nav-div"><a href="./parcours.html">Parcours</a></div>
+            <div class="nav-div"><a href="./articles.html">Articles</a></div>
+            <div class="nav-div"><a href="./ctfs.html">CTFs</a></div>
+        </section>
+    </nav>
+
+    <section class="container" id="main">
+        <article class="row" id="entete-main">
+            <div><h1>Bienvenue sur mon site</h1></div>
+        </article>
+        <article class="row" id="sous-entete-main">
+            <div><h4>ShoemakerL9 ou Merouane</h4></div>
+        </article>
+
+        <article class="row" id="ctfs">
+        </article>
+    
+    </section>
+
+    <footer class="container-fluid" id="footer-bar" >
+        <section id="footer-menu">
+            <div class="contacts footer-div"> <a href="https://www.linkedin.com/in/merouane-souadji/">Linkedin</a></div>
+            <div class="contacts footer-div"> <a href="https://github.com/Mrn-s">Github</a></div>
+            <div class="contacts footer-div"> <a href="https://tryhackme.com/p/Shoemaker">TryHackMe</a></div>
+            <div class="contacts footer-div"> <a href="https://app.hackthebox.com/profile/594822">HackTheBox</a></div>
+            <div class="contacts footer-div"> <a href="https://www.root-me.org/Shoemaker">RootMe</a></div>
+        </section>
+    </footer>
+
+    <script>
+        
+        document.body.onload = addctf;
+
+        function addctf (){
+            ctf_list.forEach((item,index) => {
+                addElement(item.image, item.description, item.titre, item.lien, item.difficulte, item.temps)
+            })
+        }
+        
+        function addElement (image, description, titre, lien, difficulte, temps) {
+        // et lui donne un peu de contenu
+        var div_1 = document.createElement("div")
+        div_1.classList.add("col-sm-6")
+        var div_2 = document.createElement("div")
+        div_2.classList.add("row")
+        var div_3 = document.createElement("div")
+        div_3.classList.add("col-sm-12")
+
+        var img_ctf = document.createElement("img")
+        img_ctf.src = image
+
+        var p_1 = document.createElement("p")
+        p_1.classList.add("col-sm-12")
+        var description_ctf = document.createTextNode("description : " + description);
+        p_1.appendChild(description_ctf);
+
+        var p_2 = document.createElement("p")
+        p_2.classList.add("col-sm-3")
+        var titre_ctf = document.createTextNode("titre : " + titre);
+        p_2.appendChild(titre_ctf);
+
+        var p_3 = document.createElement("p")
+        p_3.classList.add("col-sm-3")
+        var lien_ctf = document.createTextNode("lien : " + lien);
+        p_3.appendChild(lien_ctf);
+
+        var p_4 = document.createElement("p")
+        p_4.classList.add("col-sm-3")
+        var difficulte_ctf = document.createTextNode("difficulte : " + difficulte);
+        p_4.appendChild(difficulte_ctf);
+
+        var p_5 = document.createElement("p")
+        p_5.classList.add("col-sm-3")
+        var temps_ctf = document.createTextNode("temps : " + temps);
+        p_5.appendChild(temps_ctf);
+        
+        // ajoute le nœud texte au nouveau div créé
+
+        div_2.appendChild(div_3);
+        div_2.appendChild(p_1);
+        div_2.appendChild(p_2);
+        div_2.appendChild(p_3);
+        div_2.appendChild(p_4);
+        div_2.appendChild(p_5);
+        div_3.appendChild(img_ctf);
+        div_1.appendChild(div_2);
+        // ajoute le nouvel élément créé et son contenu dans le DOM
+        var currentDiv = document.getElementById('ctfs');
+            
+        currentDiv.appendChild(div_1);
+        }
+        
+    </script>
 </body>
 </html>
