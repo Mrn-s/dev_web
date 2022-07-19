@@ -3,119 +3,159 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>CybCyb - Site personnel de M.S</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/style_articles.css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./data/ctfs.js"></script>
 </head>
 <body>
-    <!-- https://codepen.io/jlalovi/details/bIyAr -->
-<div class="container">
-    <!-- DONUT CHART BLOCK (LEFT-CONTAINER) --> 
-    <div class="donut-chart-block block"> 
-                      <h2 class="titular">OS AUDIENCE STATS</h2>
-                      <div class="donut-chart">
-   <!-- PORCIONES GRAFICO CIRCULAR
-        ELIMINADO #donut-chart
-        MODIFICADO CSS de .donut-chart -->
-        <div id="porcion1" class="recorte"><div class="quesito ios" data-rel="21"></div></div>
-       <div id="porcion2" class="recorte"><div class="quesito mac" data-rel="39"></div></div>
-       <div id="porcion3" class="recorte"><div class="quesito win" data-rel="31"></div></div>
-       <div id="porcionFin" class="recorte"><div class="quesito linux" data-rel="9"></div></div>
-   <!-- FIN AÑADIDO GRÄFICO -->
-                              <p class="center-date">JUNE<br><span class="scnd-font-color">2013</span></p>        
-                      </div>
-                      <ul class="os-percentages horizontal-list">
-                          <li>
-                              <p class="ios os scnd-font-color">iOS</p>
-                              <p class="os-percentage">21<sup>%</sup></p>
-                          </li>
-                          <li>
-                              <p class="mac os scnd-font-color">Mac</p>
-                              <p class="os-percentage">39<sup>%</sup></p>
-                          </li>
-                          <li>
-                              <p class="linux os scnd-font-color">Linux</p>
-                              <p class="os-percentage">9<sup>%</sup></p>
-                          </li>
-                          <li>
-                              <p class="win os scnd-font-color">Win</p>
-                              <p class="os-percentage">31<sup>%</sup></p>
-                          </li>
-                      </ul>
-                  </div>
-   <!-- LINE CHART BLOCK (LEFT-CONTAINER) -->
-                  <div class="line-chart-block block">
-       <div class="line-chart">
-         <div class='grafico'>
-         <ul class='eje-y'>
-           <li data-ejeY='30'></li>
-           <li data-ejeY='20'></li>
-           <li data-ejeY='10'></li>
-           <li data-ejeY='0'></li>
-         </ul>
-         <ul class='eje-x'>
-           <li>Apr</li>
-           <li>May</li>
-           <li>Jun</li>
-         </ul>
-           <span data-valor='25'>
-             <span data-valor='8'>
-               <span data-valor='13'>
-                 <span data-valor='5'>   
-                   <span data-valor='23'>   
-                   <span data-valor='12'>
-                       <span data-valor='15'>
-                       </span></span></span></span></span></span></span>
-         </div>
-         
-       </div>
-                      <ul class="time-lenght horizontal-list">
-                          <li><a class="time-lenght-btn" href="#14">Week</a></li>
-                          <li><a class="time-lenght-btn" href="#15">Month</a></li>
-                          <li><a class="time-lenght-btn" href="#16">Year</a></li>
-                      </ul>
-                      <ul class="month-data clear">
-                          <li>
-                              <p>APR<span class="scnd-font-color"> 2013</span></p>
-                              <p><span class="entypo-plus increment"> </span>21<sup>%</sup></p>
-                          </li>
-                          <li>
-                              <p>MAY<span class="scnd-font-color"> 2013</span></p>
-                              <p><span class="entypo-plus increment"> </span>48<sup>%</sup></p>
-                          </li>
-                          <li>
-                              <p>JUN<span class="scnd-font-color"> 2013</span></p>
-                              <p><span class="entypo-plus increment"> </span>35<sup>%</sup></p>
-                          </li>
-                      </ul>
-                  </div>
-                  
-  
-    
-    <div class="bar-chart-block block">
-      <h2 class='titular'>By Country <span>*1000</span></h2>
-      <div class='grafico bar-chart'>
-         <ul class='eje-y'>
-           <li data-ejeY='60'></li>
-           <li data-ejeY='45'></li>
-           <li data-ejeY='30'></li>
-           <li data-ejeY='15'></li>
-           <li data-ejeY='0'></li>
-         </ul>
-         <ul class='eje-x'>
-           <li data-ejeX='37'><i>España</i></li>
-           <li data-ejeX='56'><i>Portugal</i></li>
-           <li data-ejeX='25'><i>Italia</i></li>
-           <li data-ejeX='18'><i>Grecia</i></li>
-           <li data-ejeX='45'><i>EE.UU</i></li>
-           <li data-ejeX='50'><i>México</i></li>
-           <li data-ejeX='33'><i>Chile</i></li>
-         </ul>
-      </div>
-    </div>
-              </div>
-  
-  <p class='nota-final'>Este pen es sólo para que <strong>@jlalovi</strong> complemente con los gráficos <a href='https://codepen.io/jlalovi/details/bIyAr'>el suyo</a>.</p>
+    <nav class="container-fluid" id="nav-bar">
+        <section class="row" id="nav-menu">
+            <article id="pro" class="col-sm-6"> 
+                <div class="row">
+                    <div class="col-sm-4"><a href="./home.html">Accueil</a></div>
+                    <div class="col-sm-4"><a href="./ctfs.html">CTFs</a></div>
+                    <div class="col-sm-4"><a href="./articles.html">Articles</a></div>
+                </div>
+            </article>
+            <article id="perso" class="col-sm-6"> 
+                <div class="row">
+                    <div class="col-sm-4"><a href="./parcours.html">Qui sui-je ?</a></div>
+                    <div class="col-sm-4"><a href="./culture.html">Culture</a></div>
+                    <div class="col-sm-4"><a href="./echecs.html">Echecs</a></div>
+                </div>
+            </article>
+        </section>
+    </nav>
+
+    <section class="container" id="main">
+        <article class="row" id="entete-main">
+            <div>Bienvenue sur CybCyb</div>
+        </article>
+        <article class="row" id="sous-entete-main">
+            <div>Sur ce site vous pourrez découvrir</div>
+        </article>
+
+
+        <article class="container-fluid pillier" id="ctfs">
+            <article class="row titre_pillier"> 
+                <p>Des résolutions de CTF un peu particulière...</p> 
+            </article>
+            <article> 
+                <p> Qu'est ce qu'un CTF,</p>
+                <p> Dans le domaine de la sécurité informatique, la « capture du drapeau » est un jeu consistant à ...</p>
+            </article>
+            <article> 
+                <p> En quoi mes résolutions sont particulières ?</p>
+                <p> Dans mes résolutions vous trouverez en plus d'une solution guidée, une redaction adaptée qui dépendra de votre niveau en cybersécurité</p>
+                <p> Quatre niveau : Debutant - Intermédiaire - habitué - 0xCr4ck</p>
+                <p> Vous trouverez aussi ce que j'ai essayé et qui n'a pas fonctionné, parce que souvent on a l'impression que les autres trouvent directement le bon chemin </p>
+                <p> Selon le niveau que vous choisissez il y'aura plus ou moins de rédaction sur la correction</p>
+                <p> Vous pourrez aussi trouver seulement des indices</p>
+                <p> si plusieurs chemins existent alors je les metterais</p>
+                <button onclick="window.location.href = './ctfs.html';">Découvrez l'univers des CTFs...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="articles_cyber">
+            <article class="row titre_pillier">
+                <p> Des articles...  </p>
+            </article>
+            <article>
+                <p> Sur quels sujets ? Quels periodicité ?</p>
+                <p> Mes articles porteront principalement sur la cyber mais aussi d'autres sujets qui peuvent me passionner.</p>
+                <p> Mes derniers articles ont traités de chiffrement quantique, actualité du groupe Lockbit2.0...</p>
+                <button onclick="window.location.href = './articles.html';">Découvrez mes articles...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="parcours">
+            <article class="row titre_pillier">
+                <p> Qui je suis...  </p>
+            </article>
+            <article>
+                <p> Mon parcours, mes hobbies, les conférences et évènements auquels j'ai participé.</p>
+                <p> D'abord passionné de sciences en particulier de mathématiques j'ai ouvert les portes d'un monde extremement stimulant : la cyber </p>
+                <button onclick="window.location.href = './parcours.html';">Découvrez qui je suis...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="culture">
+            <article class="row titre_pillier">
+                <p> Des résumés de documentaires / reportages... </p>
+            </article>
+            <article>
+                <p> Sur quels sujets ? Quels periodicité ?</p>
+                <p> Mes articles porteront principalement sur la cyber mais aussi d'autres sujets qui peuvent me passionner.</p>
+                <p> Mes derniers articles ont traités de chiffrement quantique, actualité du groupe Lockbit2.0...</p>
+                <button onclick="window.location.href = './culture.html';">Découvrez mes résumés de documentaire / reportages...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="echecs">
+            <article class="row titre_pillier">
+                <p> Des echecs...  </p>
+            </article>
+            <article>
+                <p> Explication du jeu d'échec, mes meilleurs parties, actualité echiquéenne</p>
+                <p> Vous pourrez notamment me défier directement :)</p>
+                <p> Découvrir un monde infinie posé sur 64 cases.</p>
+                <button onclick="window.location.href = './echecs.html';">Découvrez les echecs...</button>
+            </article>
+        </article>
+
+
+        <article class="row" id="autres">
+        </article>
+    </section>
+
+    <footer class="container-fluid">
+        <section class="row">
+            <div class="col-sm-2 div-img">
+                <a href="https://www.linkedin.com/in/merouane-souadji/" target="_blank">
+                    <img src="./images/footer/linkedin.png" alt="">
+                </a>
+                <div class="titre_logo">linkedin</div>
+            </div>
+            <div class="col-sm-2 div-img"> 
+                <a href="https://github.com/Mrn-s" target="_blank">
+                    <img  src="./images/footer/github.svg" alt=""> 
+                </a>
+                <div class="titre_logo">github</div>
+            </div>
+            <div class="col-sm-2 div-img"> 
+                <a href="https://tryhackme.com/p/Shoemaker" target="_blank">
+                    <img src="./images/footer/tryhackme.png"  alt=""> 
+                </a>
+                <div class="titre_logo">tryhackme</div>
+            </div>
+            <div class="col-sm-2 div-img"> 
+                <a href="https://app.hackthebox.com/profile/594822" target="_blank">
+                    <img src="./images/footer/hackthebox.png" alt=""> 
+                </a>
+                <div class="titre_logo">hackthebox</div>
+            </div>
+            <div class="col-sm-2 div-img"> 
+                <a href="https://www.root-me.org/Shoemaker" target="_blank">
+                    <img src="./images/footer/rootme.svg" alt=""> 
+                </a>
+                <div class="titre_logo">rootme</div>
+            </div>
+            <div class="col-sm-2 div-img"> 
+                <a href="https://youtube.fr" target="_blank">
+                    <img src="./images/footer/youtube.png" alt=""> 
+                </a>
+                <div class="titre_logo">youtube</div>
+            </div>
+        </section>
+    </footer>
+
+    <script>
+        
+    </script>
 </body>
 </html>

@@ -3,79 +3,111 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>CybCyb - Site personnel de M.S</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/style_home.css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="data.js"></script>
+        <script type="text/javascript" src="./data/ctfs.js"></script>
 </head>
 <body>
     <nav class="container-fluid" id="nav-bar">
         <section class="row" id="nav-menu">
-            <div class="col-sm-3"><a href="./home.html">Accueil</a></div>
-            <div class="col-sm-3"><a href="./parcours.html">Parcours</a></div>
-            <div class="col-sm-3"><a href="./articles.html">Articles</a></div>
-            <div class="col-sm-3"><a href="./ctfs.html">CTFs</a></div>
+            <article id="pro" class="col-sm-6"> 
+                <div class="row">
+                    <div class="col-sm-4"><a href="./home.html">Accueil</a></div>
+                    <div class="col-sm-4"><a href="./ctfs.html">CTFs</a></div>
+                    <div class="col-sm-4"><a href="./articles.html">Articles</a></div>
+                </div>
+            </article>
+            <article id="perso" class="col-sm-6"> 
+                <div class="row">
+                    <div class="col-sm-4"><a href="./parcours.html">Qui sui-je ?</a></div>
+                    <div class="col-sm-4"><a href="./articles.html">Culture</a></div>
+                    <div class="col-sm-4"><a href="./ctfs.html">Echecs</a></div>
+                </div>
+            </article>
         </section>
     </nav>
 
     <section class="container" id="main">
         <article class="row" id="entete-main">
-            <div><h1>Bienvenue sur mon site</h1></div>
+            <div>Bienvenue sur CybCyb</div>
         </article>
         <article class="row" id="sous-entete-main">
-            <div><h4>Merouane S.</h4></div>
-        </article>
-        <article class="row">
-            <div class="col-sm-12">
-                <p><h5>Ici vous trouverez la liste des ctfs que j'ai résolus</h5></p>
-            </div>
-        </article>
-        <article class="container-fluid">
-            <article class="row" id="ctfs">
-
-            <!-- <div class="col-sm-6" >
-                <div class="row">
-                    <div class="col-sm-12">
-                        <img src="./images/thm_ctf_0.png">
-                    </div>
-                    <div class="col-sm-12">
-                        <p class="col-sm-12">titre du ctf</p>
-                    </div>
-                    <div class="col-sm-12">
-                        <p class="col-sm-12">description</p>
-                        <p class="col-sm-12">aaaaaaaaaaa</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <p class="col-sm-12">titre</p>
-                        <p class="col-sm-12">aaaaaaaaaaa</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <p class="col-sm-12">lien</p>
-                        <p class="col-sm-12">aaaaaaaaaaa</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <p class="col-sm-12">difficulte</p>
-                        <p class="col-sm-12">aaaaaaaaaaa</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <p class="col-sm-12">temps</p>
-                        <p class="col-sm-12">aaaaaaaaaaa</p>
-                    </div>
-                </div>
-            </div>     -->
-
-        </article></article>
-
-        <article class="row" id="articles_cyber">
+            <div>Sur ce site vous pourrez découvrir</div>
         </article>
 
-        <article class="row" id="mon_parcours">
-            <div></div>
+
+        <article class="container-fluid pillier" id="ctfs">
+            <article class="row titre_pillier"> 
+                <p>Des résolutions de CTF un peu particulière...</p> 
+            </article>
+            <article> 
+                <p> Qu'est ce qu'un CTF,</p>
+                <p> Dans le domaine de la sécurité informatique, la « capture du drapeau » est un jeu consistant à ...</p>
+            </article>
+            <article> 
+                <p> En quoi mes résolutions sont particulières ?</p>
+                <p> Dans mes résolutions vous trouverez en plus d'une solution guidée, une redaction adaptée qui dépendra de votre niveau en cybersécurité</p>
+                <p> Quatre niveau : Debutant - Intermédiaire - habitué - 0xCr4ck</p>
+                <p> Vous trouverez aussi ce que j'ai essayé et qui n'a pas fonctionné, parce que souvent on a l'impression que les autres trouvent directement le bon chemin </p>
+                <p> Selon le niveau que vous choisissez il y'aura plus ou moins de rédaction sur la correction</p>
+                <p> Vous pourrez aussi trouver seulement des indices</p>
+                <p> si plusieurs chemins existent alors je les metterais</p>
+                <button onclick="window.location.href = './ctfs.html';">Découvrez l'univers des CTFs...</button>
+            </article>
         </article>
+
+        <article class="container-fluid pillier" id="articles_cyber">
+            <article class="row titre_pillier">
+                <p> Des articles...  </p>
+            </article>
+            <article>
+                <p> Sur quels sujets ? Quels periodicité ?</p>
+                <p> Mes articles porteront principalement sur la cyber mais aussi d'autres sujets qui peuvent me passionner.</p>
+                <p> Mes derniers articles ont traités de chiffrement quantique, actualité du groupe Lockbit2.0...</p>
+                <button onclick="window.location.href = './articles.html';">Découvrez mes articles...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="parcours">
+            <article class="row titre_pillier">
+                <p> Qui je suis...  </p>
+            </article>
+            <article>
+                <p> Mon parcours, mes hobbies, les conférences et évènements auquels j'ai participé.</p>
+                <p> D'abord passionné de sciences en particulier de mathématiques j'ai ouvert les portes d'un monde extremement stimulant : la cyber </p>
+                <button onclick="window.location.href = './parcours.html';">Découvrez qui je suis...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="culture">
+            <article class="row titre_pillier">
+                <p> Des résumés de documentaires / reportages... </p>
+            </article>
+            <article>
+                <p> Sur quels sujets ? Quels periodicité ?</p>
+                <p> Mes articles porteront principalement sur la cyber mais aussi d'autres sujets qui peuvent me passionner.</p>
+                <p> Mes derniers articles ont traités de chiffrement quantique, actualité du groupe Lockbit2.0...</p>
+                <button onclick="window.location.href = './culture.html';">Découvrez mes résumés de documentaire / reportages...</button>
+            </article>
+        </article>
+
+        <article class="container-fluid pillier" id="echecs">
+            <article class="row titre_pillier">
+                <p> Des echecs...  </p>
+            </article>
+            <article>
+                <p> Explication du jeu d'échec, mes meilleurs parties, actualité echiquéenne</p>
+                <p> Vous pourrez notamment me défier directement :)</p>
+                <p> Découvrir un monde infinie posé sur 64 cases.</p>
+                <button onclick="window.location.href = './echecs.html';">Découvrez les echecs...</button>
+            </article>
+        </article>
+
 
         <article class="row" id="autres">
         </article>
@@ -123,152 +155,6 @@
     </footer>
 
     <script>
-        
-        document.body.onload = addctf;
-
-        function addctf (){
-            ctf_list.forEach((item,index) => {
-                addElement(item.image, item.description, item.titre, item.avis, item.lien, item.difficulte, item.temps)
-            })
-        }
-        
-        function addElement (image, description, titre, avis, lien, difficulte, temps) {
-        // et lui donne un peu de contenu
-
-        var div_00 = document.createElement("div")
-        div_00.classList.add("col-sm-6")
-        div_00.classList.add("un_ctf")
-
-        var div_0 = document.createElement("div")
-        div_0.classList.add("col-sm-12")
-
-        var div_1 = document.createElement("div")
-        div_1.classList.add("col-sm-12")
-        
-        var div_2 = document.createElement("div")
-        div_2.classList.add("row")
-        div_2.classList.add("ctf")
-        var div_3 = document.createElement("div")
-        div_3.classList.add("col-sm-12")
-        
-        var div_4 = document.createElement("div")
-        div_4.classList.add("col-sm-12")
-        var div_5 = document.createElement("div")
-        div_5.classList.add("col-sm-3")
-        var div_6 = document.createElement("div")
-        div_6.classList.add("col-sm-3")
-        var div_7 = document.createElement("div")
-        div_7.classList.add("col-sm-3")
-        var div_8 = document.createElement("div")
-        div_8.classList.add("col-sm-3")
-
-        var img_ctf = document.createElement("img")
-        img_ctf.src = image
-
-        var p_0 = document.createElement("p")
-        p_0.classList.add("col-sm-12")
-        p_0.classList.add("titre-element-ctf")
-        var titre_ctf = document.createTextNode(titre);
-        p_0.appendChild(titre_ctf);
-
-        var p_1 = document.createElement("p")
-        p_1.classList.add("col-sm-12")
-        p_1.classList.add("titre-element-ctf")
-        var description_ctf_titre = document.createTextNode("description");
-        p_1.appendChild(description_ctf_titre);
-
-        var p_2 = document.createElement("p")
-        p_2.classList.add("col-sm-12")
-        var description_ctf = document.createTextNode(description);
-        p_2.appendChild(description_ctf);
-
-
-        var p_3 = document.createElement("p")
-        p_3.classList.add("col-sm-12")
-        p_3.classList.add("titre-element-ctf")
-        var avis_ctf_titre = document.createTextNode("Avis");
-        p_3.appendChild(avis_ctf_titre);
-
-        var p_4 = document.createElement("p")
-        p_4.classList.add("col-sm-12")
-        var avis_ctf = document.createTextNode(avis);
-        p_4.appendChild(avis_ctf);
-
-        var p_5 = document.createElement("p")
-        p_5.classList.add("col-sm-12")
-        p_5.classList.add("titre-element-ctf")
-        var lien_ctf_titre = document.createTextNode("lien");
-        p_5.appendChild(lien_ctf_titre);
-
-        var p_6 = document.createElement("p")
-        p_6.classList.add("col-sm-12")
-        var lien_ctf = document.createElement("a")
-        lien_ctf.href = lien
-        lien_ctf.text = "Voir le CTF"
-        p_6.appendChild(lien_ctf);
-
-
-        var p_7 = document.createElement("p")
-        p_7.classList.add("col-sm-12")
-        p_7.classList.add("titre-element-ctf")
-        var difficulte_ctf_titre = document.createTextNode("difficulte");
-        p_7.appendChild(difficulte_ctf_titre);
-
-        var p_8 = document.createElement("p")
-        p_8.classList.add("col-sm-12")
-        var difficulte_ctf = document.createTextNode(difficulte);
-        p_8.appendChild(difficulte_ctf);
-
-
-        var p_9 = document.createElement("p")
-        p_9.classList.add("col-sm-12")
-        p_9.classList.add("titre-element-ctf")
-        var temps_ctf_titre = document.createTextNode("temps");
-        p_9.appendChild(temps_ctf_titre);
-
-        var p_10 = document.createElement("p")
-        p_10.classList.add("col-sm-12")
-        var temps_ctf = document.createTextNode(temps);
-        p_10.appendChild(temps_ctf);
-        
-        
-        // ajoute le nœud texte au nouveau div créé
-
-            div_8.appendChild(p_9);
-            div_8.appendChild(p_10);
-
-            div_7.appendChild(p_7);
-            div_7.appendChild(p_8);
-
-            div_6.appendChild(p_5);
-            div_6.appendChild(p_6);
-
-            div_5.appendChild(p_3);
-            div_5.appendChild(p_4);
-
-            /*div_4.appendChild(p_1);*/
-            div_4.appendChild(p_2);
-
-            div_0.appendChild(p_0)
-            div_3.appendChild(img_ctf);
-
-            div_2.appendChild(div_3)
-            div_2.appendChild(div_0)
-            div_2.appendChild(div_4)
-            div_2.appendChild(div_5)
-            div_2.appendChild(div_6)
-            div_2.appendChild(div_7)
-            div_2.appendChild(div_8)
-
-            div_1.appendChild(div_2)
-            
-            div_00.appendChild(div_1)
-        
-        // ajoute le nouvel élément créé et son contenu dans le DOM
-        var currentDiv = document.getElementById('ctfs');
-            
-        currentDiv.appendChild(div_00);
-        }
         
     </script>
 </body>
