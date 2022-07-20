@@ -115,7 +115,6 @@ footer a {
 
 footer img{
   width: 20%;
-  background-color:var(--beige_fonce_o2);
 }
 
 .footer-div{
@@ -127,8 +126,8 @@ footer {
   bottom: 0;
   position: relative;
   width: 100%;
-  color: white;
-  background-color: var(--black);
+  color: black;
+  background-color: #57AC8A;
   border: 3mm ridge var(--beige_fonce_o);
 }
 
@@ -178,8 +177,6 @@ footer {
     --tailleXXL: 6em;
   
 }
-
-
 
 footer .titre_logo{
   display: flex;
