@@ -1,4 +1,16 @@
 
+.element-1{
+  background-color: var(--beige_fonce);
+  color: black;
+  border: solid black 1px;
+  
+}
+
+.element-1 div{
+  align-items: center;
+  justify-content: center;
+  
+}
 
 #entete-main{
   justify-content: center;
@@ -25,18 +37,19 @@
 }
 
 #perso {
-  background-color:#B17047;
+  background-color:#035B9A;
 }
 #perso a{
   color:#000;
 }
 
 .pillier{
-  border: ridge #57AC8A 3mm;
+  color: #070579;
+  background-color: #5A5893;
   margin: 3% 0;
+  border: solid black 1px;
+  box-shadow: black 0px 25px 35px -15px;
 }
-
-
 
 body{
     margin: 0;
